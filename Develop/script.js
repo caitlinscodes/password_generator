@@ -12,7 +12,7 @@ var uppercaseChars = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L
 var lowercaseChars = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var numberChars = [ 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var specialChars = [ "!", "@", "#", "$", "%", "&", "*", "+", "=", "?"]
-
+var characterCount = [1,2,3,4,5,6,7,8,9,10]
 
 
 // Provided by instructor
@@ -38,8 +38,8 @@ function askAboutSpecial(){
 }
 
 function askPasswordCharacterCount(){
-  passwordCharacterCount = prompt("How many characters are allowed?");
-  console.log(passwordCharacterCount);
+  passwordCharacterCount = prompt("How many characters are allowed? (up to 10)");
+  console.log(Math.floor(passwordCharacterCount));
 }
 
 function chooseRandomNumber(min, max){
@@ -50,28 +50,35 @@ function chooseRandomNumber(min, max){
   // HINT: Remember that a for-loop can iterate from a starting number to a ending number, such as the number of characters in a password.
   // HINT: You may want to look into merging arrays together
 function generatePassword(){
-  for (let index = 0; index < array.length; index++) {
+  for (let index = 0; index < passwordCharacterCount; index++) {
   var finalResult = [];
   // Pulled from in class assignment
   var randomString = "";
-  var stringLength = askPasswordCharacterCount;
+  var stringLength = passwordCharacterCount;
   for( z=1; z=stringLength; z++){
-
+    if (allowUppercase === true){
     var randomUppercase = Math.floor(Math.random() * uppercaseChars.length);
     var uppercase = uppercaseChars[randomUppercase];
     console.log(uppercase);
+    }
 
+    if (allowLowerCase === true){
     var randomLowercase = Math.floor(Math.random() * lowercaseChars.length);
     var lowercase = lowercaseChars[randomLowercase];
     console.log(lowercase);
+    }
 
+    if (allowNumbers === true){
     var randomNumber = Math.floor(Math.random() * numberChars.length);
     var number = numberChars[randomNumber];
     console.log(number);
+    }
 
+    if (allowSpecials === true){
     var randomSpecial = Math.floor(Math.random() * specialChars.length);
     var special = specialChars[randomSpecial];
     console.log(special);
+    }
 
     randomString += uppercase += lowercase += number += special;
   }
