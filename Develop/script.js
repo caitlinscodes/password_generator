@@ -39,62 +39,74 @@ function askAboutSpecial(){
 
 function askPasswordCharacterCount(){
   passwordCharacterCount = prompt("How many characters are allowed? (up to 10)");
-  console.log(Math.floor(passwordCharacterCount));
+  console.log(passwordCharacterCount);
 }
 
 function chooseRandomNumber(min, max){
   return Math.floor(Math.random() * (max - min +1) + min);
 }
 
+function character_length(){
+  return Math.floor(passwordCharacterCount);
+}
+
+// Math.floor(Math.random() * uppercaseChars.length);
+
 // Once all the criteria are determined, this function will generate the password. You can create other functions also if you need them.
   // HINT: Remember that a for-loop can iterate from a starting number to a ending number, such as the number of characters in a password.
   // HINT: You may want to look into merging arrays together
-function generatePassword(){
-  for (let index = 0; index < passwordCharacterCount; index++) {
+function generatePassword(itemsInArray){
   var finalResult = [];
+  for (let index = 0; index<=itemsInArray; index++) {
   // Pulled from in class assignment
   var randomString = "";
-  var stringLength = passwordCharacterCount;
-  for( z=1; z=stringLength; z++){
+  var stringLength = character_length();
+  for( z=1; z<=stringLength; z++){
     if (allowUppercase === true){
-    var randomUppercase = Math.floor(Math.random() * uppercaseChars.length);
+    var randomUppercase = chooseRandomNumber(0, uppercaseChars.length -1);
     var uppercase = uppercaseChars[randomUppercase];
-    console.log(uppercase);
+    randomString += uppercase;
     }
-
-    if (allowLowerCase === true){
-    var randomLowercase = Math.floor(Math.random() * lowercaseChars.length);
-    var lowercase = lowercaseChars[randomLowercase];
-    console.log(lowercase);
-    }
-
-    if (allowNumbers === true){
-    var randomNumber = Math.floor(Math.random() * numberChars.length);
-    var number = numberChars[randomNumber];
-    console.log(number);
-    }
-
-    if (allowSpecials === true){
-    var randomSpecial = Math.floor(Math.random() * specialChars.length);
-    var special = specialChars[randomSpecial];
-    console.log(special);
-    }
-
-    randomString += uppercase += lowercase += number += special;
   }
-    
+  for (y=1; y<=stringLength; y++){
+    if (allowLowerCase === true){
+    var randomLowercase = chooseRandomNumber(0, lowercaseChars.length -1);
+    var lowercase = lowercaseChars[randomLowercase];
+    randomString += lowercase;
+    }
+  }
+  for (x=1; x<=stringLength; x++){
+    if (allowNumbers === true){
+    var randomNumber = chooseRandomNumber(0, numberChars.length -1);
+    var number = numberChars[randomNumber];
+    randomString += number;
+    }
+  }
+  for (w=1; w<=stringLength; w++){
+    if (allowSpecials === true){
+    var randomSpecial = chooseRandomNumber(0, specialChars.length -1);
+    var special = specialChars[randomSpecial];
+    randomString += special;
+    }
+  }
+  finalResult.push(randomString);
+  }
+  console.log(finalResult)
+  return finalResult; 
   }  
-  
-  return finalResult;
-}
 
 // Write password to the #password input
 function writePassword() {
-  askAboutUppercase();
-  askAboutLowercase();
-  askAboutNumbers();
-  askAboutSpecial();
-  askPasswordCharacterCount();
+  askAboutUppercase(true, false);
+ 
+  askAboutLowercase(true, false);
+ 
+  askAboutNumbers(true, false);
+
+  askAboutSpecial(true, false);
+
+  askPasswordCharacterCount(passwordCharacterCount);
+
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");

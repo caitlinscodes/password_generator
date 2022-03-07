@@ -2,15 +2,15 @@
 
 ## Objectives
 
-In this project, I ...
+In this project, I attempted to create a random password generator using javascript functions.
 
 ## Screenshot of Final Page
 
-![Screenshot of final webpage](./assets/images/PENDING)
+![Screenshot of final webpage](./Assets/pass_gen.png)
 
 ## Link To The Final Page
 
-[Link to final webpage](PENDING)
+[Link to final webpage](https://caitlinscodes.github.io/password_generator/)
 
 ## License
 
