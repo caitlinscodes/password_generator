@@ -42,15 +42,9 @@ function askPasswordCharacterCount(){
   console.log(passwordCharacterCount);
 }
 
-function chooseRandomNumber(min, max){
-  return Math.floor(Math.random() * (max - min +1) + min);
-}
-
 function character_length(){
   return Math.floor(passwordCharacterCount);
 }
-
-// Math.floor(Math.random() * uppercaseChars.length);
 
 // Once all the criteria are determined, this function will generate the password. You can create other functions also if you need them.
   // HINT: Remember that a for-loop can iterate from a starting number to a ending number, such as the number of characters in a password.
@@ -63,28 +57,28 @@ function generatePassword(itemsInArray){
   var stringLength = character_length();
   for( z=1; z<=stringLength; z++){
     if (allowUppercase === true){
-    var randomUppercase = chooseRandomNumber(0, uppercaseChars.length -1);
+    var randomUppercase = Math.floor(Math.random() * uppercaseChars.length);
     var uppercase = uppercaseChars[randomUppercase];
     randomString += uppercase;
     }
   }
   for (y=1; y<=stringLength; y++){
     if (allowLowerCase === true){
-    var randomLowercase = chooseRandomNumber(0, lowercaseChars.length -1);
+    var randomLowercase = Math.floor(Math.random() * lowercaseChars.length);
     var lowercase = lowercaseChars[randomLowercase];
     randomString += lowercase;
     }
   }
   for (x=1; x<=stringLength; x++){
     if (allowNumbers === true){
-    var randomNumber = chooseRandomNumber(0, numberChars.length -1);
+    var randomNumber = Math.floor(Math.random() * numberChars.length);
     var number = numberChars[randomNumber];
     randomString += number;
     }
   }
   for (w=1; w<=stringLength; w++){
     if (allowSpecials === true){
-    var randomSpecial = chooseRandomNumber(0, specialChars.length -1);
+    var randomSpecial = Math.floor(Math.random() * specialChars.length);
     var special = specialChars[randomSpecial];
     randomString += special;
     }
