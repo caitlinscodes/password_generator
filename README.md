@@ -6,7 +6,7 @@ In this project, I attempted to create a random password generator using javascr
 
 ## Screenshot of Final Page
 
-![Screenshot of final webpage](./Assets/pass_gen.png)
+![Screenshot of final webpage](./assets/images/pass_gen.png)
 
 ## Link To The Final Page
 
